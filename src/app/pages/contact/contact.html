@@ -1,0 +1,469 @@
+<!-- ==========================================================================
+     PAGE CONTACT - TOURÉ ACCESSORIES COMPANY (TAC)
+     ========================================================================== -->
+
+<div class="contact-page">
+
+  <!-- ========================================================================
+       HERO BANNER & BREADCRUMB
+       ======================================================================== -->
+  <section class="page-hero-section">
+    <div class="hero-glow-accent"></div>
+    <div class="container page-hero-container">
+      
+      <!-- Fil d'Ariane -->
+      <nav class="breadcrumb-nav" aria-label="Fil d'Ariane">
+        <a routerLink="/accueil" class="breadcrumb-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Accueil
+        </a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Contact</span>
+      </nav>
+
+      <!-- Titres & En-tête -->
+      <span class="section-tag">TOURÉ ACCESSORIES COMPANY</span>
+      <h1 class="page-hero-title">
+        Contactez-<span class="text-gold-gradient">nous</span>
+      </h1>
+      <h2 class="page-hero-subtitle">
+        Nous sommes à votre écoute
+      </h2>
+      <p class="page-hero-description">
+        Vous avez une question sur nos accessoires automobiles, besoin d’un conseil pour équiper votre véhicule ou d’informations sur la livraison à Dakar et partout au Sénégal ? Remplissez le formulaire ci-dessous ou joignez-nous directement.
+      </p>
+
+      <div class="gold-separator"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION PRINCIPALE : CARTES COORDONNÉES & FORMULAIRE
+       ======================================================================== -->
+  <section class="contact-main-section">
+    <div class="container">
+      <div class="contact-layout-grid">
+
+        <!-- ====================================================================
+             COLONNE GAUCHE : COORDONNÉES & ASSISTANCE TAC
+             ==================================================================== -->
+        <aside class="contact-info-col" aria-label="Coordonnées de l'entreprise">
+          
+          <div class="info-header-block">
+            <div class="badge-direct">
+              <span class="pulse-dot"></span>
+              <span>SERVICE CLIENT DISPONIBLE</span>
+            </div>
+            <h3 class="info-title">Échangeons directement</h3>
+            <p class="info-desc">
+              Notre équipe dédiée se tient à votre entière disposition pour répondre à toutes vos interrogations avec réactivité et bienveillance.
+            </p>
+          </div>
+
+          <!-- Grille des cartes de contact direct -->
+          <div class="info-cards-list">
+
+            <!-- Carte 1 : Téléphone direct -->
+            <a [href]="contactInfo.phoneHref" class="info-card" aria-label="Appeler le numéro de téléphone TAC">
+              <div class="info-card-icon phone-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="info-card-content">
+                <span class="info-label">Téléphone</span>
+                <span class="info-value highlight-gold">{{ contactInfo.phone }}</span>
+                <span class="info-hint">Appel direct &bull; Lun - Sam 8h-20h</span>
+              </div>
+              <div class="info-card-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Carte 2 : WhatsApp Direct -->
+            <a [href]="contactInfo.whatsappHref" target="_blank" rel="noopener noreferrer" class="info-card whatsapp-card" aria-label="Contacter TAC via WhatsApp">
+              <div class="info-card-icon whatsapp-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+              </div>
+              <div class="info-card-content">
+                <div class="label-with-tag">
+                  <span class="info-label">WhatsApp</span>
+                  <span class="badge-fast">Réponse instantanée</span>
+                </div>
+                <span class="info-value">{{ contactInfo.whatsapp }}</span>
+                <span class="info-hint">Échange direct &bull; Chat & Devis</span>
+              </div>
+              <div class="info-card-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Carte 3 : E-mail professionnel -->
+            <a [href]="contactInfo.emailHref" class="info-card" aria-label="Envoyer un e-mail à TAC">
+              <div class="info-card-icon email-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </div>
+              <div class="info-card-content">
+                <span class="info-label">Adresse e-mail</span>
+                <span class="info-value">{{ contactInfo.email }}</span>
+                <span class="info-hint">Réponse sous 24h ouvrées</span>
+              </div>
+              <div class="info-card-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Carte 4 : Localisation & Livraison -->
+            <a [href]="contactInfo.mapsHref" target="_blank" rel="noopener noreferrer" class="info-card" aria-label="Voir la localisation de TAC sur Google Maps">
+              <div class="info-card-icon map-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="info-card-content">
+                <span class="info-label">Localisation</span>
+                <span class="info-value">{{ contactInfo.location }}</span>
+                <span class="info-hint">{{ contactInfo.deliveryZone }}</span>
+              </div>
+              <div class="info-card-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </div>
+            </a>
+
+          </div>
+
+          <!-- Bloc Réseaux Sociaux TAC -->
+          <div class="socials-box">
+            <span class="socials-box-title">Suivez TOURÉ ACCESSORIES</span>
+            <div class="socials-box-icons">
+              <a [href]="contactInfo.socials.facebook" target="_blank" rel="noopener noreferrer" class="social-box-btn" aria-label="Page Facebook TAC">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span>Facebook</span>
+              </a>
+
+              <a [href]="contactInfo.socials.instagram" target="_blank" rel="noopener noreferrer" class="social-box-btn" aria-label="Compte Instagram TAC">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>Instagram</span>
+              </a>
+
+              <a [href]="contactInfo.socials.tiktok" target="_blank" rel="noopener noreferrer" class="social-box-btn" aria-label="Compte TikTok TAC">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-.88-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 9.19 5.61 6.3 6.3 0 0 0 3.49-5.61V8.62a8.28 8.28 0 0 0 4.67 1.44V6.69z"/>
+                </svg>
+                <span>TikTok</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Carte d'engagement -->
+          <div class="assurance-card">
+            <div class="assurance-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="assurance-text">
+              <strong>Engagement TAC :</strong> Tous nos accessoires sont testés et vérifiés avant expédition pour garantir fiabilité, longévité et compatibilité.
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- ====================================================================
+             COLONNE DROITE : FORMULAIRE DE CONTACT AVEC EMAILJS
+             ==================================================================== -->
+        <section class="contact-form-col" aria-label="Formulaire pour nous envoyer un message">
+          <div class="form-card-container">
+            
+            <div class="form-card-header">
+              <span class="form-card-tag">FORMULAIRE DE CONTACT</span>
+              <h3 class="form-card-title">Envoyez-nous un message</h3>
+              <p class="form-card-subtitle">
+                Renseignez vos coordonnées et votre requête. Nous recevrons directement votre message sur notre messagerie d'entreprise.
+              </p>
+            </div>
+
+            <!-- ================================================================
+                 BANNIÈRES D'ÉTAT : SUCCÈS & ERREUR
+                 ================================================================ -->
+            @if (feedbackStatus === 'success') {
+              <div class="status-alert alert-success" role="alert" aria-live="polite">
+                <div class="alert-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="9 12 12 15 16 10"></polyline>
+                  </svg>
+                </div>
+                <div class="alert-content">
+                  <h4 class="alert-title">Message envoyé avec succès !</h4>
+                  <p class="alert-message">{{ feedbackMessage }}</p>
+                </div>
+                <button type="button" class="alert-close-btn" (click)="dismissFeedback()" aria-label="Fermer le message de confirmation">
+                  &times;
+                </button>
+              </div>
+            }
+
+            @if (feedbackStatus === 'error') {
+              <div class="status-alert alert-error" role="alert" aria-live="assertive">
+                <div class="alert-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </div>
+                <div class="alert-content">
+                  <h4 class="alert-title">Échec de l'envoi</h4>
+                  <p class="alert-message">{{ feedbackMessage }}</p>
+                </div>
+                <button type="button" class="alert-close-btn" (click)="dismissFeedback()" aria-label="Fermer le message d'erreur">
+                  &times;
+                </button>
+              </div>
+            }
+
+            <!-- ================================================================
+                 FORMULAIRE RÉACTIF
+                 ================================================================ -->
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
+              
+              <!-- Honeypot invisible : piege anti-spams -->
+              <div class="honeypot-field" aria-hidden="true">
+                <label for="company_website">Ne pas remplir ce champ si vous êtes humain</label>
+                <input
+                  type="text"
+                  id="company_website"
+                  formControlName="company_website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+
+              <!-- Champ 1 : Nom complet -->
+              <div class="form-group" [class.has-error]="hasError('fullName')">
+                <label for="contact-fullname" class="form-label">
+                  Nom complet <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    id="contact-fullname"
+                    formControlName="fullName"
+                    class="form-control"
+                    placeholder="Ex. Amadou Touré"
+                    autocomplete="name"
+                    [attr.aria-invalid]="hasError('fullName')"
+                    [attr.aria-describedby]="hasError('fullName') ? 'fullname-error' : null"
+                  />
+                </div>
+
+                @if (hasError('fullName', 'required')) {
+                  <span id="fullname-error" class="error-text" role="alert">
+                    Veuillez renseigner votre nom complet.
+                  </span>
+                }
+                @if (hasError('fullName', 'minlength')) {
+                  <span class="error-text" role="alert">
+                    Le nom doit comporter au moins 2 caractères.
+                  </span>
+                }
+              </div>
+
+              <!-- Champ 2 : Adresse e-mail -->
+              <div class="form-group" [class.has-error]="hasError('email')">
+                <label for="contact-email" class="form-label">
+                  Adresse e-mail <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                  </span>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    formControlName="email"
+                    class="form-control"
+                    placeholder="nom@exemple.com"
+                    autocomplete="email"
+                    [attr.aria-invalid]="hasError('email')"
+                    [attr.aria-describedby]="hasError('email') ? 'email-error' : null"
+                  />
+                </div>
+
+                @if (hasError('email', 'required')) {
+                  <span id="email-error" class="error-text" role="alert">
+                    Veuillez renseigner votre adresse e-mail.
+                  </span>
+                }
+                @if (hasError('email', 'email') || hasError('email', 'pattern')) {
+                  <span class="error-text" role="alert">
+                    Format d'adresse e-mail invalide (ex: exemple&#64;domaine.com).
+                  </span>
+                }
+              </div>
+
+              <!-- Champ 3 : Sujet -->
+              <div class="form-group" [class.has-error]="hasError('subject')">
+                <label for="contact-subject" class="form-label">
+                  Sujet du message <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                
+                <!-- Suggestions de sujets rapides -->
+                <div class="subject-chips" aria-label="Sujets rapides suggérés">
+                  <span class="chips-hint">Suggestions :</span>
+                  @for (topic of suggestedSubjects; track topic) {
+                    <button
+                      type="button"
+                      class="chip-btn"
+                      [class.chip-active]="contactForm.get('subject')?.value === topic"
+                      (click)="selectSubject(topic)">
+                      {{ topic }}
+                    </button>
+                  }
+                </div>
+
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    id="contact-subject"
+                    formControlName="subject"
+                    class="form-control"
+                    placeholder="Ex. Demande de renseignement ou devis"
+                    [attr.aria-invalid]="hasError('subject')"
+                    [attr.aria-describedby]="hasError('subject') ? 'subject-error' : null"
+                  />
+                </div>
+
+                @if (hasError('subject', 'required')) {
+                  <span id="subject-error" class="error-text" role="alert">
+                    Veuillez indiquer le sujet de votre message.
+                  </span>
+                }
+                @if (hasError('subject', 'minlength')) {
+                  <span class="error-text" role="alert">
+                    Le sujet doit contenir au moins 3 caractères.
+                  </span>
+                }
+              </div>
+
+              <!-- Champ 4 : Message -->
+              <div class="form-group" [class.has-error]="hasError('message')">
+                <div class="label-with-counter">
+                  <label for="contact-message" class="form-label">
+                    Votre message <span class="required-star" aria-hidden="true">*</span>
+                  </label>
+                  <span class="char-counter">
+                    {{ contactForm.get('message')?.value?.length || 0 }} / 3000
+                  </span>
+                </div>
+
+                <div class="textarea-wrapper">
+                  <textarea
+                    id="contact-message"
+                    formControlName="message"
+                    class="form-control form-textarea"
+                    rows="6"
+                    placeholder="Détaillez votre question, la référence d'un accessoire, votre modèle de voiture ou votre adresse de livraison à Dakar..."
+                    [attr.aria-invalid]="hasError('message')"
+                    [attr.aria-describedby]="hasError('message') ? 'message-error' : null"
+                  ></textarea>
+                </div>
+
+                @if (hasError('message', 'required')) {
+                  <span id="message-error" class="error-text" role="alert">
+                    Veuillez saisir votre message.
+                  </span>
+                }
+                @if (hasError('message', 'minlength')) {
+                  <span class="error-text" role="alert">
+                    Votre message doit comporter au moins 10 caractères pour nous permettre de vous répondre utilement.
+                  </span>
+                }
+              </div>
+
+              <!-- Bouton d'envoi & Anti-double soumission -->
+              <div class="form-actions">
+                <button
+                  type="submit"
+                  class="btn btn-primary submit-btn"
+                  [disabled]="isLoading"
+                  [class.btn-loading]="isLoading"
+                  aria-label="Envoyer le message à TOURÉ ACCESSORIES COMPANY">
+                  
+                  @if (isLoading) {
+                    <!-- Indicateur Spinner de chargement -->
+                    <svg class="spinner-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <circle class="spinner-circle" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+                      <path class="spinner-path" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Transmission en cours...</span>
+                  } @else {
+                    <span>Envoyer le message</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13"></line>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                  }
+                </button>
+              </div>
+
+              <!-- Note de confidentialité et d'engagement -->
+              <div class="form-security-hint">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span>Vos données sont strictement confidentielles et ne seront jamais partagées à des tiers.</span>
+              </div>
+
+            </form>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+</div>

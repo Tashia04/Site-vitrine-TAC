@@ -1,0 +1,293 @@
+<!-- ==========================================================================
+     PAGE DÉTAIL DU PRODUIT - TOURÉ ACCESSORIES COMPANY (TAC)
+     ========================================================================== -->
+
+<div class="product-detail-page">
+  <div class="container">
+
+    <!-- État : Produit introuvable (404) -->
+    @if (notFound() || !product()) {
+      <div class="not-found-state">
+        <div class="not-found-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <h1 class="not-found-title">Produit introuvable</h1>
+        <p class="not-found-desc">
+          Le produit demandé n'existe pas ou n'est plus disponible dans notre catalogue.
+        </p>
+        <div class="not-found-actions">
+          <a routerLink="/produits" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+            <span>Retour au catalogue</span>
+          </a>
+        </div>
+      </div>
+    } @else {
+      <!-- Fil d'Ariane (Breadcrumbs) -->
+      <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+        <ol class="breadcrumbs-list">
+          <li class="breadcrumbs-item">
+            <a routerLink="/accueil" class="breadcrumbs-link">Accueil</a>
+          </li>
+          <li class="breadcrumbs-separator" aria-hidden="true">/</li>
+          <li class="breadcrumbs-item">
+            <a routerLink="/produits" class="breadcrumbs-link">Nos produits</a>
+          </li>
+          <li class="breadcrumbs-separator" aria-hidden="true">/</li>
+          <li class="breadcrumbs-item current" aria-current="page">
+            {{ product()!.name }}
+          </li>
+        </ol>
+      </nav>
+
+      <!-- Bouton rapide retour -->
+      <div class="back-link-wrap">
+        <a routerLink="/produits" class="back-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          <span>Retour à la liste des produits</span>
+        </a>
+      </div>
+
+      <!-- Fiche principale produit : Présentation & Actions -->
+      <article class="product-hero-card">
+        <!-- Colonne visuelle (Image) -->
+        <div class="product-visual-wrap">
+          <div class="image-stage">
+            <img
+              [src]="product()!.image"
+              [alt]="product()!.name"
+              class="product-large-img"
+              loading="eager"
+            />
+            @if (product()!.badge) {
+              <span class="product-badge">{{ product()!.badge }}</span>
+            }
+          </div>
+          <p class="image-caption">Photo de démonstration officielle TAC</p>
+        </div>
+
+        <!-- Colonne informations -->
+        <div class="product-info-col">
+          <!-- Catégorie & Statut -->
+          <div class="meta-header">
+            <span class="category-pill">{{ product()!.category }}</span>
+            @if (product()!.available !== undefined) {
+              <span class="availability-pill" [class.in-stock]="product()!.available">
+                <span class="status-dot"></span>
+                {{ product()!.available ? 'Disponible' : 'Sur commande' }}
+              </span>
+            }
+          </div>
+
+          <!-- Titre principal -->
+          <h1 class="product-title">{{ product()!.name }}</h1>
+
+          <!-- Description courte / Lead -->
+          <p class="product-lead">{{ product()!.shortDescription || product()!.description }}</p>
+
+          <!-- Prix (si renseigné) -->
+          <div class="product-price-box">
+            @if (product()!.price) {
+              <div class="price-present">
+                <span class="price-label">Prix indicatif :</span>
+                <span class="price-amount">{{ product()!.price }}</span>
+              </div>
+            } @else {
+              <div class="price-on-demand">
+                <span class="price-label">Tarif :</span>
+                <span class="price-demand-text">Sur demande / À confirmer</span>
+                <span class="price-hint">Contactez notre équipe pour connaître le tarif actuel et les modalités de livraison.</span>
+              </div>
+            }
+          </div>
+
+          <!-- Actions principales : Commander (WhatsApp) & Contacter -->
+          <div class="product-actions">
+            <!-- Bouton Commander WhatsApp -->
+            <a
+              [href]="getWhatsAppUrl(product()!.name)"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary order-btn"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>Commander via WhatsApp</span>
+            </a>
+
+            <!-- Bouton Nous contacter -->
+            <a routerLink="/contact" class="btn btn-secondary contact-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span>Nous contacter</span>
+            </a>
+          </div>
+
+          <!-- Bandeau de réassurance TAC -->
+          <div class="reassurance-strip">
+            <div class="reassurance-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+              <span>Qualité contrôlée</span>
+            </div>
+            <div class="reassurance-divider"></div>
+            <div class="reassurance-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+                <circle cx="17" cy="18" r="2"/>
+                <circle cx="7" cy="18" r="2"/>
+              </svg>
+              <span>Livraison Sénégal</span>
+            </div>
+            <div class="reassurance-divider"></div>
+            <div class="reassurance-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>
+              </svg>
+              <span>Support réactif</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Section Détails : Description complète & Spécifications -->
+      <section class="product-details-sections">
+        <div class="details-grid">
+          <!-- Colonne gauche : Description détaillée -->
+          <div class="detail-card">
+            <div class="card-section-header">
+              <div class="header-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <h2 class="section-heading">Description détaillée</h2>
+            </div>
+            <div class="detail-content">
+              <p class="description-full">{{ product()!.description }}</p>
+              <p class="commercial-note">
+                <span class="note-tag">Note TAC :</span>
+                Chez TOURÉ ACCESSORIES COMPANY, chaque produit fait l'objet d'une sélection rigoureuse. Pour toute question technique ou compatibilité spécifique avec votre véhicule ou équipement, notre service commercial est à votre disposition directe.
+              </p>
+            </div>
+          </div>
+
+          <!-- Colonne droite : Caractéristiques & Contenu du colis -->
+          <div class="specs-col">
+            <!-- Caractéristiques -->
+            @if (product()!.features && product()!.features!.length > 0) {
+              <div class="detail-card">
+                <div class="card-section-header">
+                  <div class="header-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="9 11 12 14 22 4"></polyline>
+                      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                  </div>
+                  <h2 class="section-heading">Caractéristiques</h2>
+                </div>
+                <ul class="features-list">
+                  @for (feature of product()!.features; track feature) {
+                    <li class="feature-item">
+                      <span class="feature-bullet">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </span>
+                      <span class="feature-text">{{ feature }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+
+            <!-- Contenu du colis -->
+            @if (product()!.contents && product()!.contents!.length > 0) {
+              <div class="detail-card contents-card">
+                <div class="card-section-header">
+                  <div class="header-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                  </div>
+                  <h2 class="section-heading">Contenu du colis</h2>
+                </div>
+                <ul class="contents-list">
+                  @for (item of product()!.contents; track item) {
+                    <li class="content-item">
+                      <span class="box-icon">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                          <rect width="18" height="18" x="3" y="3" rx="2"/>
+                        </svg>
+                      </span>
+                      <span>{{ item }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Produits de la même catégorie -->
+      @if (similarProducts().length > 0) {
+        <section class="similar-products-section">
+          <div class="similar-header">
+            <div>
+              <span class="section-tag">DANS LA MÊME CATÉGORIE</span>
+              <h2 class="similar-title">Autres produits recommandés</h2>
+            </div>
+            <a routerLink="/produits" class="btn btn-secondary">
+              <span>Tout voir</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="similar-grid">
+            @for (sim of similarProducts(); track sim.id) {
+              <article class="similar-card">
+                <div class="sim-img-wrap">
+                  <img [src]="sim.image" [alt]="sim.name" loading="lazy" />
+                </div>
+                <div class="sim-body">
+                  <span class="sim-category">{{ sim.category }}</span>
+                  <h3 class="sim-title">{{ sim.name }}</h3>
+                  <a [routerLink]="['/produits', sim.id]" class="sim-link">
+                    <span>Consulter</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+            }
+          </div>
+        </section>
+      }
+    }
+
+  </div>
+</div>

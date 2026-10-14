@@ -1,0 +1,788 @@
+/* ==========================================================================
+   PAGE CONTACT - TOURÉ ACCESSORIES COMPANY (TAC)
+   Thème : Luxe Automobile, Ambiance Graphite Sombre & Accents Or Métallisé
+   ========================================================================== */
+
+.contact-page {
+  padding-top: 84px; /* Dégagement de la barre de navigation fixe */
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   HERO BANNER & BREADCRUMB
+   ========================================================================== */
+.page-hero-section {
+  position: relative;
+  padding: 3.5rem 0 3.75rem 0;
+  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.09) 0%, transparent 65%);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+  overflow: hidden;
+}
+
+.hero-glow-accent {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 280px;
+  background: rgba(212, 175, 55, 0.14);
+  filter: blur(90px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.page-hero-container {
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+
+  .breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--gold-300);
+    }
+  }
+
+  .breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .breadcrumb-current {
+    color: var(--gold-400);
+    font-weight: 600;
+  }
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: 0.5rem;
+}
+
+.page-hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.page-hero-subtitle {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 600;
+  color: var(--gold-200);
+  margin-bottom: 0.9rem;
+}
+
+.page-hero-description {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  line-height: 1.65;
+}
+
+.gold-separator {
+  width: 60px;
+  height: 3px;
+  background: var(--gold-gradient-btn);
+  border-radius: 2px;
+  margin-top: 1.5rem;
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL : GRILLE À 2 COLONNES
+   ========================================================================== */
+.contact-main-section {
+  padding: 4rem 0 5.5rem 0;
+  position: relative;
+}
+
+.contact-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 420px 1fr;
+    gap: 3.5rem;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: 450px 1fr;
+    gap: 4rem;
+  }
+}
+
+/* ==========================================================================
+   COLONNE GAUCHE : CARTES DE CONTACT DIRECT
+   ========================================================================== */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.info-header-block {
+  .badge-direct {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-400);
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    padding: 0.35rem 0.8rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 0.9rem;
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+  }
+
+  .info-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .info-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+}
+
+.info-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.4rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold-gradient-btn);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+
+  &:hover {
+    background: var(--color-bg-card-hover);
+    border-color: rgba(212, 175, 55, 0.45);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .info-card-arrow {
+      transform: translateX(4px);
+      color: var(--gold-400);
+    }
+  }
+
+  .info-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform var(--transition-normal);
+
+    &.phone-icon-wrap {
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold-400);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    &.whatsapp-icon-wrap {
+      background: rgba(37, 211, 102, 0.12);
+      color: #25d366;
+      border: 1px solid rgba(37, 211, 102, 0.25);
+    }
+
+    &.email-icon-wrap {
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold-400);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    &.map-icon-wrap {
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold-400);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+  }
+
+  &:hover .info-card-icon {
+    transform: scale(1.08);
+  }
+
+  .info-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+
+    .label-with-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .badge-fast {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #25d366;
+      background: rgba(37, 211, 102, 0.1);
+      padding: 0.15rem 0.45rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(37, 211, 102, 0.2);
+    }
+
+    .info-value {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.highlight-gold {
+        color: var(--gold-300);
+      }
+    }
+
+    .info-hint {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+  }
+
+  .info-card-arrow {
+    color: var(--text-muted);
+    transition: transform var(--transition-normal), color var(--transition-fast);
+    flex-shrink: 0;
+  }
+}
+
+/* Bloc Réseaux Sociaux TAC */
+.socials-box {
+  background: rgba(13, 15, 21, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.4rem;
+
+  .socials-box-title {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.9rem;
+  }
+
+  .socials-box-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .social-box-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.95rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-pill);
+    color: var(--text-primary);
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+
+    &:hover {
+      background: rgba(212, 175, 55, 0.12);
+      border-color: var(--gold-500);
+      color: var(--gold-300);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Carte Engagement & Confiance */
+.assurance-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.2rem;
+  background: var(--gold-gradient-soft);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--radius-lg);
+
+  .assurance-icon {
+    color: var(--gold-400);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .assurance-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+
+    strong {
+      color: var(--gold-200);
+      font-weight: 700;
+    }
+  }
+}
+
+/* ==========================================================================
+   COLONNE DROITE : FORMULAIRE DE CONTACT
+   ========================================================================== */
+.contact-form-col {
+  width: 100%;
+}
+
+.form-card-container {
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem 1.75rem;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(14px);
+  position: relative;
+
+  @media (min-width: 640px) {
+    padding: 3rem 2.5rem;
+  }
+}
+
+.form-card-header {
+  margin-bottom: 2rem;
+
+  .form-card-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-400);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-card-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    color: var(--text-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-card-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+}
+
+/* ==========================================================================
+   BANNIÈRES D'ALERTE (SUCCÈS / ERREUR)
+   ========================================================================== */
+.status-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  position: relative;
+  animation: fadeInAlert 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .alert-icon-box {
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .alert-content {
+    flex: 1;
+
+    .alert-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .alert-message {
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+  }
+
+  .alert-close-btn {
+    font-size: 1.5rem;
+    line-height: 1;
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+    padding: 0 0.25rem;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.alert-success {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: #6ee7b7;
+
+    .alert-title {
+      color: #a7f3d0;
+    }
+
+    .alert-message {
+      color: #e6fffa;
+    }
+  }
+
+  &.alert-error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #fca5a5;
+
+    .alert-title {
+      color: #fecaca;
+    }
+
+    .alert-message {
+      color: #fff1f2;
+    }
+  }
+}
+
+@keyframes fadeInAlert {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   CHAMPS DU FORMULAIRE
+   ========================================================================== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* Champ Honeypot masqué aux humains */
+.honeypot-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    .required-star {
+      color: var(--gold-400);
+      font-weight: 700;
+    }
+  }
+
+  .label-with-counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .char-counter {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+  }
+}
+
+/* Suggestions de sujets rapides */
+.subject-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+
+  .chips-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-right: 0.2rem;
+  }
+
+  .chip-btn {
+    font-size: 0.74rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+
+    &:hover {
+      background: rgba(212, 175, 55, 0.1);
+      border-color: rgba(212, 175, 55, 0.35);
+      color: var(--gold-300);
+    }
+
+    &.chip-active {
+      background: rgba(212, 175, 55, 0.18);
+      border-color: var(--gold-500);
+      color: var(--gold-200);
+      font-weight: 600;
+    }
+  }
+}
+
+/* Wrapper pour les inputs avec icône */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .input-icon {
+    position: absolute;
+    left: 1.1rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color var(--transition-fast);
+    display: flex;
+    align-items: center;
+  }
+
+  .form-control {
+    padding-left: 2.85rem;
+  }
+}
+
+.textarea-wrapper {
+  position: relative;
+}
+
+/* Éléments de contrôle de saisie */
+.form-control {
+  width: 100%;
+  padding: 0.95rem 1.15rem;
+  background: #0b0d12;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--text-white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: all var(--transition-normal);
+  outline: none;
+
+  &::placeholder {
+    color: #525866;
+  }
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &:focus {
+    background: #0e1118;
+    border-color: var(--gold-500);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+  }
+}
+
+.input-wrapper:focus-within .input-icon {
+  color: var(--gold-400);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 130px;
+  max-height: 400px;
+  line-height: 1.6;
+}
+
+/* États d'erreur */
+.form-group.has-error {
+  .form-control {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.03);
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+    }
+  }
+
+  .input-icon {
+    color: #ef4444;
+  }
+}
+
+.error-text {
+  font-size: 0.8rem;
+  color: #f87171;
+  font-weight: 500;
+  display: block;
+  margin-top: 0.2rem;
+  animation: fadeInAlert 0.25s ease-out;
+}
+
+/* ==========================================================================
+   ACTIONS DU FORMULAIRE & BOUTON D'ENVOI
+   ========================================================================== */
+.form-actions {
+  margin-top: 0.5rem;
+
+  .submit-btn {
+    width: 100%;
+    padding: 1.05rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    box-shadow: var(--shadow-gold);
+
+    @media (min-width: 640px) {
+      width: auto;
+      min-width: 250px;
+    }
+
+    &:hover:not(:disabled) {
+      box-shadow: var(--shadow-gold-hover);
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none;
+    }
+
+    &.btn-loading {
+      background: linear-gradient(135deg, #d4af37 0%, #b89124 100%);
+    }
+  }
+}
+
+/* Spinner SVG */
+.spinner-icon {
+  animation: spin 1s linear infinite;
+
+  .spinner-circle {
+    opacity: 0.25;
+  }
+
+  .spinner-path {
+    opacity: 0.85;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mention de confidentialité */
+.form-security-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 0.5rem;
+
+  svg {
+    color: var(--gold-500);
+    flex-shrink: 0;
+  }
+}

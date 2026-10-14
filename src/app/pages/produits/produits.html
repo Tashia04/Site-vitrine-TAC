@@ -1,0 +1,246 @@
+<!-- ==========================================================================
+     PAGE MES PRODUITS - TOURÉ ACCESSORIES COMPANY (TAC)
+     ========================================================================== -->
+
+<div class="page-produits-wrapper">
+
+  <!-- ========================================================================
+       SECTION A : BANNIÈRE D'INTRODUCTION
+       ======================================================================== -->
+  <header class="products-hero-banner" aria-label="Présentation du catalogue">
+    <div class="banner-glow-orb banner-glow-left"></div>
+    <div class="banner-glow-orb banner-glow-right"></div>
+
+    <div class="container banner-container">
+      <div class="banner-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">TOURÉ ACCESSORIES COMPANY</span>
+      </div>
+
+      <h1 class="banner-title">
+        Découvrez notre <span class="text-gold-gradient">collection</span>
+      </h1>
+
+      <p class="banner-description">
+        Explorez notre sélection de produits soigneusement choisis pour améliorer votre confort, votre mobilité et votre quotidien. Chez TAC, nous associons praticité, qualité et innovation.
+      </p>
+
+      <!-- Indicateurs de confiance rapides -->
+      <div class="banner-highlights">
+        <div class="highlight-chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          <span>Qualité certifiée</span>
+        </div>
+        <div class="highlight-chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+            <circle cx="17" cy="18" r="2"/>
+            <circle cx="7" cy="18" r="2"/>
+          </svg>
+          <span>Livraison au Sénégal</span>
+        </div>
+        <div class="highlight-chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>Commande directe WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container catalog-body">
+
+    <!-- ========================================================================
+         SECTION B : BARRE DE RECHERCHE
+         ======================================================================== -->
+    <section class="search-section" aria-label="Recherche de produits">
+      <div class="search-box">
+        <div class="search-input-wrapper">
+          <span class="search-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+
+          <input
+            type="search"
+            class="search-input"
+            placeholder="Rechercher par nom, description, catégorie (ex: aspirateur, booster, caméra, sport...)"
+            [ngModel]="searchQuery()"
+            (ngModelChange)="searchQuery.set($event)"
+            (input)="onSearchInput($event)"
+            aria-label="Rechercher un produit"
+          />
+
+          @if (searchQuery().length > 0) {
+            <button
+              type="button"
+              class="clear-search-btn"
+              (click)="searchQuery.set('')"
+              aria-label="Effacer la recherche"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          }
+        </div>
+
+        <!-- Feedback dynamique du nombre de résultats -->
+        <div class="search-status-bar">
+          <span class="results-counter">
+            <strong>{{ filteredProducts().length }}</strong>
+            {{ filteredProducts().length > 1 ? 'produits affichés' : 'produit affiché' }}
+          </span>
+
+          @if (searchQuery().trim().length > 0 || selectedCategory() !== 'all') {
+            <button type="button" class="reset-link-btn" (click)="resetFilters()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+              </svg>
+              <span>Réinitialiser les filtres</span>
+            </button>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION C : FILTRAGE PAR CATÉGORIES
+         ======================================================================== -->
+    <section class="categories-filter-section" aria-label="Filtrer par catégorie">
+      <div class="filter-header">
+        <h2 class="filter-section-title">Nos catégories</h2>
+        <span class="filter-section-hint">Sélectionnez une catégorie pour filtrer l'affichage</span>
+      </div>
+
+      <div class="categories-buttons-row" role="tablist">
+        @for (cat of categoriesList(); track cat.id) {
+          <button
+            type="button"
+            class="category-btn"
+            [class.active]="selectedCategory() === cat.id"
+            (click)="selectCategory(cat.id)"
+            role="tab"
+            [attr.aria-selected]="selectedCategory() === cat.id"
+          >
+            <span class="category-name">{{ cat.name }}</span>
+            <span class="category-count">{{ cat.count }}</span>
+          </button>
+        }
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION D : GRILLE DES PRODUITS
+         ======================================================================== -->
+    <section class="products-catalog-section" aria-label="Grille des produits">
+      @if (filteredProducts().length === 0) {
+        <!-- Message aucun résultat -->
+        <div class="no-results-card">
+          <div class="no-results-icon">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          </div>
+          <h3 class="no-results-title">Aucun produit ne correspond à votre recherche</h3>
+          <p class="no-results-text">
+            @if (searchQuery().trim()) {
+              Aucun résultat pour « <strong>{{ searchQuery() }}</strong> » dans la catégorie sélectionnée.
+            } @else {
+              Aucun produit disponible dans cette catégorie pour le moment.
+            }
+          </p>
+          <button type="button" class="btn btn-primary" (click)="resetFilters()">
+            <span>Voir tous les produits</span>
+          </button>
+        </div>
+      } @else {
+        <!-- Grille responsive -->
+        <div class="products-grid">
+          @for (prod of filteredProducts(); track prod.id) {
+            <article class="tac-catalog-card">
+              <!-- Zone visuelle de l'image -->
+              <div class="card-visual-wrap">
+                <img
+                  [src]="prod.image"
+                  [alt]="prod.name"
+                  class="card-img"
+                  loading="lazy"
+                />
+                @if (prod.badge) {
+                  <span class="card-badge">{{ prod.badge }}</span>
+                }
+                <div class="card-visual-gradient"></div>
+              </div>
+
+              <!-- Corps de la carte -->
+              <div class="card-content">
+                <div class="card-top-meta">
+                  <span class="card-cat-tag">{{ prod.category }}</span>
+                  @if (prod.available !== undefined) {
+                    <span class="card-avail-dot" title="Disponible"></span>
+                  }
+                </div>
+
+                <h3 class="card-prod-title">
+                  <a [routerLink]="['/produits', prod.id]" class="title-link">
+                    {{ prod.name }}
+                  </a>
+                </h3>
+
+                <p class="card-prod-desc">
+                  {{ prod.shortDescription || prod.description }}
+                </p>
+
+                <!-- Prix si renseigné, sinon mention discrète -->
+                <div class="card-price-strip">
+                  @if (prod.price) {
+                    <span class="price-val">{{ prod.price }}</span>
+                  } @else {
+                    <span class="price-demand">Tarif sur demande</span>
+                  }
+                </div>
+
+                <!-- Boutons d'action -->
+                <div class="card-action-buttons">
+                  <a [routerLink]="['/produits', prod.id]" class="btn-action-details">
+                    <span>Voir les détails</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </a>
+
+                  <a
+                    [href]="getWhatsAppOrderUrl(prod.name)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-action-order"
+                    title="Commander via WhatsApp"
+                    aria-label="Commander {{ prod.name }} via WhatsApp"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <span>Commander</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      }
+    </section>
+
+  </div>
+</div>

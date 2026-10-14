@@ -1,0 +1,36 @@
+<article class="tac-product-card">
+  <!-- Card Image Container -->
+  <div class="card-image-wrap">
+    <img [src]="product.image" [alt]="product.name" class="card-image" loading="lazy" />
+    @if (product.badge) {
+      <span class="card-badge">{{ product.badge }}</span>
+    }
+    <div class="card-image-overlay"></div>
+  </div>
+
+  <!-- Card Body -->
+  <div class="card-body">
+    @if (product.category) {
+      <span class="card-category">{{ product.category }}</span>
+    }
+    <h3 class="card-title">{{ product.name }}</h3>
+    <p class="card-description">{{ product.description }}</p>
+
+    @if (product.price) {
+      <div class="card-price">
+        <span class="price-val">{{ product.price }}</span>
+      </div>
+    }
+
+    <!-- Card Footer / Button -->
+    <div class="card-footer">
+      <a [routerLink]="['/produits', product.id]" class="btn-card-action">
+        <span>Voir les détails</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>

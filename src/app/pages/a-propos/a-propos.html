@@ -1,0 +1,232 @@
+<!-- ==========================================================================
+     PAGE À PROPOS - TOURÉ ACCESSORIES COMPANY (TAC)
+     ========================================================================== -->
+
+<div class="a-propos-page">
+
+  <!-- ========================================================================
+       HERO BANNER & BREADCRUMB
+       ======================================================================== -->
+  <section class="page-hero-section">
+    <div class="hero-glow-accent"></div>
+    <div class="container page-hero-container">
+      
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb-nav" aria-label="Fil d'Ariane">
+        <a routerLink="/accueil" class="breadcrumb-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Accueil
+        </a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">À propos</span>
+      </nav>
+
+      <span class="section-tag">À PROPOS DE TAC</span>
+      <h1 class="page-hero-title">
+        Une entreprise née d'une <span class="text-gold-gradient">passion</span>
+      </h1>
+      <p class="page-hero-subtitle">
+        L'excellence, le confort automobile et l'innovation au service de votre quotidien au Sénégal.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION NOTRE HISTOIRE & IDENTITÉ
+       ======================================================================== -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-grid">
+        
+        <!-- Colonne Gauche : Visuel & Emblème TAC -->
+        <div class="story-visual-wrap">
+          <div class="story-emblem-card">
+            <div class="emblem-glow-circle"></div>
+            <div class="emblem-inner">
+              <img src="assets/images/logo/tac-logo.png" alt="Emblème officiel TAC" class="emblem-logo" />
+              <div class="emblem-text-block">
+                <span class="emblem-brand">TOURÉ ACCESSORIES</span>
+                <span class="emblem-sub">COMPANY (TAC)</span>
+              </div>
+            </div>
+
+            <!-- Badge flottais d'engagement -->
+            <div class="story-floating-tag">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span>Entreprise 100% Sénégalaise</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colonne Droite : Récit & Ambition -->
+        <div class="story-content">
+          <span class="section-tag">NOTRE HISTOIRE</span>
+          <h2 class="section-title">Le confort & la performance réunis</h2>
+          <div class="gold-separator"></div>
+
+          <p class="story-lead">
+            <strong>TOURÉ ACCESSORIES COMPANY (TAC)</strong> est une entreprise sénégalaise spécialisée dans la vente d'accessoires automobiles, d'équipements de sport, d'articles de bien-être et de solutions pratiques pour la maison.
+          </p>
+
+          <p class="story-body">
+            Née de la volonté d'offrir aux automobilistes et aux foyers sénégalais des équipements fiables, élégants et durables, notre entreprise sélectionne rigoureusement chaque article. Nous croyons que chaque trajet en voiture doit être une expérience de sérénité, de confort et de propreté absolue.
+          </p>
+
+          <p class="story-body">
+            Au-delà de l'univers automobile, nous développons des gammes complémentaires (fitness à domicile, bien-être et appareils ménagers nomades) pour accompagner un style de vie dynamique, moderne et exigeant.
+          </p>
+
+          <div class="story-cta-row">
+            <a routerLink="/produits" class="btn btn-primary">
+              <span>Explorer nos produits</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+            <a routerLink="/contact" class="btn btn-secondary">
+              <span>Nous contacter</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION CHIFFRES CLÉS / STATISTIQUES
+       ======================================================================== -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        @for (stat of stats; track stat.label) {
+          <div class="stat-card">
+            <span class="stat-value text-gold-gradient">{{ stat.value }}</span>
+            <h3 class="stat-label">{{ stat.label }}</h3>
+            <p class="stat-desc">{{ stat.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION PILIERS & VALEURS (MAQUETTE)
+       ======================================================================== -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-heading-centered">
+        <span class="section-tag">ENGAGEMENT & EXCELLENCE</span>
+        <h2 class="section-title">Nos 4 piliers d'engagement</h2>
+        <p class="section-subtitle">
+          Ce qui guide chaque sélection et chaque interaction avec nos clients.
+        </p>
+        <div class="gold-separator centered"></div>
+      </div>
+
+      <div class="values-grid">
+        @for (pillar of pillars; track pillar.title) {
+          <div class="value-card">
+            <div class="value-icon-box">
+              @switch (pillar.icon) {
+                @case ('shield') {
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                }
+                @case ('handshake') {
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 11V7a4 4 0 0 0-8 0v4"/>
+                    <path d="M7 11h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z"/>
+                  </svg>
+                }
+                @case ('lightbulb') {
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+                    <path d="M9 18h6"/>
+                    <path d="M10 22h4"/>
+                  </svg>
+                }
+                @case ('map-pin') {
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                }
+              }
+            </div>
+
+            <h3 class="value-title">{{ pillar.title }}</h3>
+            <p class="value-desc">{{ pillar.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION MISSION & VISION
+       ======================================================================== -->
+  <section class="mission-vision-section">
+    <div class="container">
+      <div class="mission-vision-grid">
+        
+        <div class="mv-card">
+          <div class="mv-tag">NOTRE MISSION</div>
+          <h3 class="mv-title">Rendre l'excellence accessible</h3>
+          <p class="mv-desc">
+            Démocratiser l'accès aux technologies de confort et aux accessoires automobiles haut de gamme au Sénégal en proposant des produits certifiés, innovants et au juste prix.
+          </p>
+        </div>
+
+        <div class="mv-card">
+          <div class="mv-tag">NOTRE VISION</div>
+          <h3 class="mv-title">Être la référence incontournable</h3>
+          <p class="mv-desc">
+            Bâtir la marque de référence en Afrique de l'Ouest pour l'équipement moderne de véhicules et les équipements pratiques améliorant la qualité de vie au quotidien.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION CALL TO ACTION
+       ======================================================================== -->
+  <section class="a-propos-cta-section">
+    <div class="container">
+      <div class="a-propos-cta-box">
+        <div class="cta-glow-circle"></div>
+        <div class="cta-inner">
+          <span class="section-tag">PASSEZ À LA VITESSE SUPÉRIEURE</span>
+          <h2 class="cta-heading">Équipez votre véhicule avec le meilleur</h2>
+          <p class="cta-sub">
+            Découvrez nos produits en stock ou posez vos questions à notre équipe technique.
+          </p>
+
+          <div class="cta-btns">
+            <a routerLink="/produits" class="btn btn-primary">
+              <span>Voir le catalogue de produits</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+            <a routerLink="/contact" class="btn btn-secondary">
+              <span>Nous contacter</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

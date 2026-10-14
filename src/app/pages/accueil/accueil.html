@@ -1,0 +1,279 @@
+<!-- ==========================================================================
+     PAGE ACCUEIL - TOURÉ ACCESSORIES COMPANY (TAC)
+     ========================================================================== -->
+
+<div class="accueil-page">
+
+  <!-- ========================================================================
+       SECTION B: HERO
+       ======================================================================== -->
+  <section class="hero-section" aria-label="Présentation principale">
+    <div class="hero-glow-blob hero-glow-blob-1"></div>
+    <div class="hero-glow-blob hero-glow-blob-2"></div>
+
+    <div class="container hero-container">
+      <!-- Hero Left: Content -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text">TOURÉ ACCESSORIES COMPANY</span>
+        </div>
+
+        <h1 class="hero-title">
+          ÉQUIPEZ-VOUS.<br />
+          <span class="text-gold-gradient">ROULEZ MIEUX.</span><br />
+          VIVEZ MIEUX.
+        </h1>
+
+        <p class="hero-description">
+          Des accessoires de qualité pour votre voiture, votre confort et votre quotidien.
+        </p>
+
+        <div class="hero-actions">
+          <a routerLink="/produits" class="btn btn-primary hero-btn-main">
+            <span>Découvrir nos produits</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+
+          <a routerLink="/contact" class="btn btn-secondary hero-btn-sub">
+            <span>Nous contacter</span>
+          </a>
+        </div>
+
+        <!-- Quick Trust Indicators -->
+        <div class="hero-trust-bar">
+          <div class="trust-item">
+            <span class="trust-number">100%</span>
+            <span class="trust-label">Qualité Garantie</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-number">Sénégal</span>
+            <span class="trust-label">Livraison Express</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-number">24/7</span>
+            <span class="trust-label">Service Client</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Right: Luxury Car Visual -->
+      <div class="hero-visual">
+        <div class="car-frame">
+          <div class="car-glow-ring"></div>
+          <img 
+            src="assets/images/hero/voiture-hero.jpg" 
+            alt="Véhicule de luxe équipé avec les accessoires TAC" 
+            class="car-image" 
+            priority
+          />
+          <div class="car-image-fade"></div>
+          
+          <!-- Floating Feature Badge -->
+          <div class="floating-badge">
+            <div class="floating-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/>
+              </svg>
+            </div>
+            <div class="floating-badge-text">
+              <span class="floating-title">Accessoires Premium</span>
+              <span class="floating-sub">Performances & Style</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION C: PRÉSENTATION RAPIDE DE TAC
+       ======================================================================== -->
+  <section class="presentation-section" aria-label="À propos de TAC">
+    <div class="container">
+      <div class="presentation-card">
+        <div class="presentation-header">
+          <span class="section-tag">À PROPOS DE TAC</span>
+          <h2 class="section-title">Découvrez <span class="text-gold-gradient">TOURÉ ACCESSORIES COMPANY</span></h2>
+          <div class="gold-separator"></div>
+        </div>
+
+        <div class="presentation-grid">
+          <!-- Text and Story -->
+          <div class="presentation-story">
+            <p class="presentation-lead">
+              TOURÉ ACCESSORIES COMPANY est une entreprise sénégalaise spécialisée dans la vente d'accessoires automobiles, d'équipements de sport, d'articles de bien-être et de solutions pratiques pour la maison.
+            </p>
+            <p class="presentation-subtext">
+              Nous sélectionnons chaque référence avec une exigence absolue de qualité, de durabilité et d'esthétique pour transformer vos trajets et votre confort au quotidien.
+            </p>
+
+            <div class="presentation-cta">
+              <a routerLink="/a-propos" class="btn btn-outline-gold">
+                <span>En savoir plus</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Feature Pillars -->
+          <div class="presentation-pillars">
+            @for (pillar of valuePillars; track pillar.title) {
+              <div class="pillar-box">
+                <div class="pillar-bullet"></div>
+                <div class="pillar-content">
+                  <h3 class="pillar-title">{{ pillar.title }}</h3>
+                  <p class="pillar-desc">{{ pillar.description }}</p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION D: QUELQUES PRODUITS (PRODUITS PHARES)
+       ======================================================================== -->
+  <section class="products-section" aria-label="Nos produits">
+    <div class="container">
+      <div class="section-heading-row">
+        <div>
+          <span class="section-tag">SÉLECTION EXCLUSIVE</span>
+          <h2 class="section-title">Nos produits</h2>
+          <p class="section-subtitle">
+            Découvrez une sélection de produits pensés pour améliorer votre quotidien.
+          </p>
+        </div>
+
+        <a routerLink="/produits" class="btn btn-secondary view-all-btn">
+          <span>Voir tout le catalogue</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid">
+        @for (product of products; track product.id) {
+          <app-product-card [product]="product" />
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION E: POURQUOI CHOISIR TAC ?
+       ======================================================================== -->
+  <section class="advantages-section" aria-label="Pourquoi choisir TAC">
+    <div class="container">
+      <div class="section-heading-centered">
+        <span class="section-tag">NOS ATOUTS</span>
+        <h2 class="section-title">Pourquoi choisir TAC ?</h2>
+        <p class="section-subtitle">Votre satisfaction est notre priorité.</p>
+        <div class="gold-separator centered"></div>
+      </div>
+
+      <div class="advantages-grid">
+        @for (adv of advantages; track adv.title) {
+          <div class="advantage-card">
+            <div class="advantage-icon-wrapper">
+              @switch (adv.icon) {
+                @case ('shield') {
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                }
+                @case ('tag') {
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/>
+                    <path d="M7 7h.01"/>
+                  </svg>
+                }
+                @case ('truck') {
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+                    <path d="M15 18H9"/>
+                    <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+                    <circle cx="17" cy="18" r="2"/>
+                    <circle cx="7" cy="18" r="2"/>
+                  </svg>
+                }
+                @case ('headset') {
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>
+                  </svg>
+                }
+              }
+            </div>
+
+            <h3 class="advantage-title">{{ adv.title }}</h3>
+            <p class="advantage-desc">{{ adv.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION F: CALL TO ACTION
+       ======================================================================== -->
+  <section class="cta-section" aria-label="Appel à l'action">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-bg-glow"></div>
+        <div class="cta-content">
+          <span class="section-tag">PASSEZ À L'ACTION</span>
+          <h2 class="cta-title">Besoin d'un accessoire pour votre quotidien ?</h2>
+          <p class="cta-text">
+            Découvrez notre sélection de produits ou contactez-nous pour plus d'informations.
+          </p>
+
+          <div class="cta-actions">
+            <a routerLink="/produits" class="btn btn-primary cta-btn-primary">
+              <span>Voir nos produits</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+
+            <a routerLink="/contact" class="btn btn-secondary cta-btn-secondary">
+              <span>Nous contacter</span>
+            </a>
+          </div>
+
+          <!-- Quick contact strip -->
+          <div class="cta-contact-strip">
+            <div class="cta-contact-unit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Notre localisation : <strong>Pikine, Dakar</strong></span>
+            </div>
+            <div class="cta-contact-unit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Contact direct : <a href="tel:+221775038397" class="cta-tel-link"><strong>+221 77 503 83 97</strong></a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
