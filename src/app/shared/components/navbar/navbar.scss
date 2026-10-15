@@ -9,6 +9,7 @@
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(212, 175, 55, 0.12);
   transition: all var(--transition-normal);
+  padding-top: var(--sat);
 
   &.scrolled {
     background: rgba(7, 8, 11, 0.92);
@@ -22,10 +23,20 @@
   align-items: center;
   justify-content: space-between;
   height: 84px;
+  padding-left: max(var(--container-padding), var(--sal));
+  padding-right: max(var(--container-padding), var(--sar));
   transition: height var(--transition-normal);
+
+  @media (max-width: 480px) {
+    height: 72px;
+  }
 
   .scrolled & {
     height: 72px;
+
+    @media (max-width: 480px) {
+      height: 64px;
+    }
   }
 }
 
@@ -33,14 +44,16 @@
 .logo-link {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: clamp(0.45rem, 2vw, 0.85rem);
   text-decoration: none;
   cursor: pointer;
+  min-width: 0;
 
   .logo-img {
-    height: 48px;
+    height: clamp(36px, 8vw, 48px);
     width: auto;
     object-fit: contain;
+    flex-shrink: 0;
     filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.3));
     transition: transform var(--transition-normal);
   }
@@ -52,22 +65,25 @@
   .logo-text {
     display: flex;
     flex-direction: column;
+    min-width: 0;
 
     .brand-title {
       font-family: var(--font-heading);
-      font-size: 1.15rem;
+      font-size: clamp(0.95rem, 3.2vw, 1.15rem);
       font-weight: 800;
       letter-spacing: 0.08em;
       color: var(--text-white);
       line-height: 1.1;
+      white-space: nowrap;
     }
 
     .brand-sub {
-      font-size: 0.62rem;
+      font-size: clamp(0.52rem, 1.6vw, 0.62rem);
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       color: var(--gold-400);
       text-transform: uppercase;
+      white-space: nowrap;
     }
   }
 }
@@ -216,18 +232,24 @@
   right: 0;
   bottom: 0;
   width: min(85vw, 340px);
+  max-width: 100vw;
   background: #0d0f15;
   border-left: 1px solid rgba(212, 175, 55, 0.25);
   box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
   z-index: 1100;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-  transform: translateX(100%);
+  padding-top: max(1.5rem, var(--sat));
+  padding-bottom: max(1.5rem, var(--sab));
+  padding-left: max(1.25rem, var(--sal));
+  padding-right: max(1.25rem, var(--sar));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translate3d(100%, 0, 0);
   transition: transform var(--transition-smooth);
 
   &.open {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   .mobile-menu-header {
@@ -236,6 +258,7 @@
     justify-content: space-between;
     padding-bottom: 1.25rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
 
     .mobile-logo {
       display: flex;
@@ -263,6 +286,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
 
       &:hover {
         color: var(--gold-400);
@@ -276,6 +301,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    flex-shrink: 0;
   }
 
   .mobile-nav-link {
@@ -283,6 +309,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.85rem 1rem;
+    min-height: 44px;
     border-radius: var(--radius-md);
     font-size: 1.05rem;
     font-weight: 500;

@@ -5,289 +5,336 @@ import { Product } from '../models/product';
   providedIn: 'root',
 })
 export class ProductService {
-  /**
-   * Numéro WhatsApp officiel TAC pour les commandes et renseignements.
-   * Format international sans signes : 32466331412 (+32 466 33 14 12).
-   */
   readonly whatsappNumber = '32466331412';
 
-  /**
-   * Liste des catégories officielles de TOURÉ ACCESSORIES COMPANY (TAC).
-   */
   readonly categories: string[] = [
     'Accessoires automobiles',
     'Technologie et gadgets',
-    'Maison et équipements',
+    'Maison et bricolage',
     'Sport et fitness',
   ];
 
-  /**
-   * Catalogue des 8 produits initiaux de TAC.
-   * Conformément aux spécifications, les informations non confirmées restent optionnelles
-   * ou mentionnées "À confirmer" sans inventer de caractéristiques fictives.
-   */
   private readonly products: Product[] = [
-    // -------------------------------------------------------------------------
-    // Catégorie 1 : Accessoires automobiles
-    // -------------------------------------------------------------------------
+    // Accessoires automobiles
     {
-      id: 1,
-      slug: 'aspirateur-voiture-portable',
-      name: 'Aspirateur de voiture portable',
+      id: 9,
+      slug: 'coussin-accoudoir-mouchoirs',
+      name: 'Coussin Accoudoir Voiture avec Boîte à Mouchoirs',
       category: 'Accessoires automobiles',
-      shortDescription:
-        'Aspirateur compact conçu pour faciliter le nettoyage de l’intérieur d’un véhicule.',
-      description:
-        'Aspirateur compact spécialement conçu pour faciliter l’entretien et le nettoyage de l’habitacle d’un véhicule. Grâce à son format ergonomique et maniable, il permet de dépoussiérer les sièges, nettoyer les tapis de sol et atteindre les recoins difficiles d’accès.',
-      image: 'assets/images/produits/aspirateur-voiture.jpg',
-      badge: 'Best-Seller',
+      shortDescription: "Coussin d'accoudoir pour voiture avec boite a mouchoirs integree - confort et praticite au quotidien.",
+      description: "Ce coussin d'accoudoir specialement concu pour voiture integre une boite a mouchoirs pratique et accessible directement depuis votre siege. Il se fixe facilement sur votre accoudoir central grace a des sangles reglables universelles. Le rembourrage de haute densite offre un confort optimal pour le bras lors des longs trajets.",
+      image: 'assets/images/produits/coussin-accoudoir-user-0.jpg',
+      images: [
+        'assets/images/produits/coussin-accoudoir-user-0.jpg',
+        'assets/images/produits/coussin-accoudoir-user-1.jpg',
+        'assets/images/produits/coussin-accoudoir-user-2.jpg',
+        'assets/images/produits/coussin-accoudoir-user-3.jpg',
+      ],
+      badge: 'Confort',
       featured: true,
       available: true,
       features: [
-        'Format compact et léger pour une prise en main immédiate',
-        'Nettoyage adapté aux sièges, recoins et tapis de voiture',
-        'Alimentation : selon le modèle (à confirmer)',
-        'Embouts adaptés aux zones étroites de l’habitacle',
+        "Boite a mouchoirs integree - acces rapide depuis le siege conducteur ou passager",
+        "Fixation universelle par sangles reglables, compatible la plupart des vehicules",
+        "Rembourrage haute densite pour un confort optimal du bras",
+        "Disponible en plusieurs coloris et matieres",
+        "Facile a nettoyer et a entretenir",
       ],
       contents: [
-        'Aspirateur de voiture portable',
-        'Embout suceur plat pour recoins',
-        'Câble d’alimentation / recharge',
-        'Manuel d’utilisation',
+        "Coussin accoudoir avec boite a mouchoirs",
+        "Sangles de fixation reglables",
+        "Notice de pose",
       ],
     },
-    {
-      id: 2,
-      slug: 'booster-batterie-portable',
-      name: 'Booster de batterie portable',
-      category: 'Accessoires automobiles',
-      shortDescription:
-        'Appareil conçu pour aider au démarrage d’un véhicule lorsque la batterie est déchargée, selon sa compatibilité.',
-      description:
-        'Appareil conçu pour apporter une aide précieuse au démarrage d’un véhicule lors d’une panne de batterie inopinée, selon les spécifications et compatibilités du véhicule. Compact et sécurisé, cet accessoire est un allié indispensable à garder dans votre coffre pour tous vos déplacements.',
-      image: 'assets/images/produits/demarreur-batterie.jpg',
-      badge: 'Indispensable',
-      featured: true,
-      available: true,
-      features: [
-        'Assistance au démarrage d’urgence en toute autonomie',
-        'Pinces de connexion sécurisées avec protections intégrées',
-        'Format portable facile à ranger dans le coffre ou sous un siège',
-        'Capacité et puissance de démarrage : à confirmer selon modèle',
-      ],
-      contents: [
-        'Booster de batterie portable',
-        'Jeu de pinces de démarrage avec protection',
-        'Câble de recharge',
-        'Guide d’utilisation et consignes de sécurité',
-      ],
-    },
+    // Technologie et gadgets
     {
       id: 3,
-      slug: 'diffuseur-parfum-voiture',
-      name: 'Diffuseur de parfum pour voiture',
-      category: 'Accessoires automobiles',
-      shortDescription:
-        'Accessoire destiné à apporter une ambiance parfumée à l’habitacle.',
-      description:
-        'Accessoire élégant conçu pour instaurer une ambiance olfactive agréable et continue à bord de votre véhicule. Son design soigné s’intègre discrètement sur la grille d’aération de votre tableau de bord sans altérer l’esthétique intérieure.',
-      image: 'assets/images/produits/diffuseur-parfum.jpg',
-      badge: 'Premium',
+      slug: 'sonnette-video-sans-fil',
+      name: 'Sonnette Vidéo sans fil',
+      category: 'Technologie et gadgets',
+      shortDescription: "Sonnette connectée avec caméra intégrée pour surveiller votre entrée en temps réel depuis votre smartphone.",
+      description: "Cette sonnette vidéo sans fil vous permet de voir, entendre et parler à vos visiteurs depuis votre smartphone. Grâce à sa caméra intégrée et sa connexion Wi-Fi, elle offre une surveillance en temps réel de votre entrée. Compatible Android et iOS.",
+      image: 'assets/images/produits/sonnette-video-sans-fil.jpg',
+      badge: 'Connecté',
       featured: true,
       available: true,
       features: [
-        'Diffusion subtile et régulière pour tout l’habitacle',
-        'Fixation simple et stable sur grille de ventilation',
-        'Type de diffusion, alimentation et autonomie : à confirmer selon modèle',
-        'Design sobre aux finitions métalliques élégantes',
+        "Camera integree avec vision nocturne pour surveiller 24h/24",
+        "Connexion Wi-Fi et notifications en temps reel sur smartphone",
+        "Communication bidirectionnelle via l'application mobile",
+        "Installation sans fil, compatible Android et iOS",
+        "Detection de mouvement avec alertes instantanees",
       ],
       contents: [
-        'Diffuseur de parfum automobile',
-        'Cartouche / recharge parfumée',
-        'Notice d’installation rapide',
+        "Sonnette video sans fil",
+        "Support de fixation mural",
+        "Cable de recharge",
+        "Guide d'installation rapide",
       ],
     },
-
-    // -------------------------------------------------------------------------
-    // Catégorie 2 : Technologie et gadgets
-    // -------------------------------------------------------------------------
     {
       id: 4,
-      slug: 'camera-poche-stabilisee',
-      name: 'Caméra de poche stabilisée',
+      slug: 'aspirateur-eau-poussiere',
+      name: 'Aspirateur eau et poussière',
       category: 'Technologie et gadgets',
-      shortDescription:
-        'Caméra compacte destinée à la création de vidéos, aux vlogs et aux prises de vue en déplacement.',
-      description:
-        'Caméra ultra-compacte pensée pour la création de contenu vidéo, le vlogging et la capture de souvenirs spontanés en déplacement. Son format de poche vous permet de l’emporter partout avec vous, en voyage comme au quotidien, pour filmer à tout moment.',
-      image: 'assets/images/produits/camera-vlog.jpg',
-      badge: 'Nouveauté',
+      shortDescription: "Aspirateur polyvalent conçu pour aspirer aussi bien la poussière que les liquides renversés.",
+      description: "Cet aspirateur multifonction eau et poussiere est l'outil ideal pour un nettoyage complet et efficace. Il aspire aussi bien les poussieres fines que les liquides renverses. Robuste et puissant, il convient a la maison comme au garage.",
+      image: 'assets/images/produits/aspirateur-eau-poussiere.jpg',
+      badge: 'Polyvalent',
       featured: true,
       available: true,
       features: [
-        'Format miniature pour une portabilité totale dans une poche',
-        'Conçue pour les vidéos en mouvement et le vlogging',
-        'Écran de contrôle intégré pour visualiser vos cadrages',
-        'Résolution, stabilisation et autonomie : à confirmer selon fiche technique',
+        "Double fonction : aspiration de la poussiere et des liquides",
+        "Cuve de grande capacite pour des nettoyages prolonges",
+        "Filtre haute efficacite retenant les particules fines",
+        "Accessoires multiples inclus pour chaque surface",
+        "Robuste et adapte a une utilisation intensive",
       ],
       contents: [
-        'Caméra de poche stabilisée',
-        'Câble USB de transfert et recharge',
-        'Dragonne de maintien',
-        'Guide de démarrage rapide',
+        "Aspirateur eau et poussiere",
+        "Tube et flexible d'aspiration",
+        "Accessoires de nettoyage",
+        "Filtre de rechange",
+        "Notice d'utilisation",
       ],
     },
     {
       id: 5,
-      slug: 'smart-tag-balise-intelligente',
-      name: 'Smart Tag – Balise intelligente de localisation',
+      slug: 'booster-batterie-portable',
+      name: 'Booster de batterie portable',
       category: 'Technologie et gadgets',
-      shortDescription:
-        'Petite balise conçue pour aider à retrouver des objets personnels avec un smartphone et une application compatible.',
-      description:
-        'Petite balise intelligente conçue pour vous aider à retrouver rapidement vos objets du quotidien égarés (clés, portefeuille, sacoche, bagage) via une application mobile compatible sur smartphone. Un compagnon technologique pratique pour votre sérénité.',
-      image: 'assets/images/produits/traceur-gps.jpg',
-      badge: 'Connecté',
-      featured: false,
+      shortDescription: "Booster de demarrage compact avec batterie lithium pour demarrer votre vehicule en cas de panne.",
+      description: "Ce booster de batterie portable integre une batterie lithium haute densite pour redemarrer votre vehicule en autonomie. Ultra-compact, il tient dans la boite a gants et peut aussi servir de batterie externe pour vos appareils mobiles.",
+      image: 'assets/images/produits/booster-batterie-portable.jpg',
+      badge: 'Pro',
+      featured: true,
       available: true,
       features: [
-        'Format ultra-léger et discret façon porte-clés',
-        'Localisation de proximité et sonnerie d’alerte via smartphone',
-        'Connectivité Bluetooth et compatibilité OS : à confirmer selon modèle',
-        'Autonomie longue durée (pile remplaçable selon version)',
+        "Batterie lithium haute densite pour un demarrage puissant",
+        "Fonctionne sans vehicule d'appoint - autonome et compact",
+        "Double fonction : demarreur + batterie externe USB",
+        "Pinces de demarrage intelligentes avec protection contre l'inversion",
+        "Indicateur LED du niveau de charge",
       ],
       contents: [
-        'Balise intelligente Smart Tag TAC',
-        'Anneau ou support de fixation porte-clés',
-        'Notice d’appairage smartphone',
+        "Booster de batterie portable",
+        "Cables de demarrage avec pinces intelligentes",
+        "Cable de recharge USB-C",
+        "Pochette de transport",
+        "Manuel d'utilisation",
       ],
     },
-
-    // -------------------------------------------------------------------------
-    // Catégorie 3 : Maison et équipements
-    // -------------------------------------------------------------------------
+    {
+      id: 12,
+      slug: 'machine-cafe-portable',
+      name: 'Machine à café portable',
+      category: 'Technologie et gadgets',
+      shortDescription: "Machine à café compacte et portable pour savourer un café de qualité où que vous soyez.",
+      description: "Cette machine à café portable vous permet de préparer un café de qualité n'importe où : au bureau, en déplacement ou en voyage. Légère et compacte, elle s'utilise facilement sans branchement complexe.",
+      image: 'assets/images/produits/machine-cafe1.jpg',
+      badge: 'Nouveauté',
+      featured: true,
+      available: true,
+      features: [
+        "Format compact et leger, ideal pour les deplacements",
+        "Prepare un cafe de qualite rapidement",
+        "Compatible avec differents types de cafe selon le modele",
+        "Facile a nettoyer et a entretenir",
+        "Alimentation et capacite : a confirmer selon modele",
+      ],
+      contents: [
+        "Machine a cafe portable",
+        "Cable d'alimentation",
+        "Notice d'utilisation",
+      ],
+    },
+    {
+      id: 14,
+      slug: 'traceur-gps',
+      name: 'Traceur GPS',
+      category: 'Technologie et gadgets',
+      shortDescription: 'Traceur GPS compact pour la géolocalisation et la sécurisation en temps réel de vos véhicules et objets de valeur.',
+      description: "Ce traceur GPS compact et discret assure la géolocalisation précise et en temps réel de vos véhicules (voiture, moto, scooter), bagages ou objets personnels. Facile à dissimuler, il offre un suivi à distance direct sur votre smartphone avec des alertes instantanées en cas de déplacement suspect.",
+      image: 'assets/images/produits/traceur-gps.jpg',
+      badge: 'Sécurité',
+      featured: true,
+      available: true,
+      features: [
+        'Géolocalisation précise en temps réel consultable sur smartphone',
+        'Format miniature ultra-discret, facile à installer ou dissimuler',
+        'Alertes intelligentes en cas de mouvement suspect ou sortie de zone',
+        'Batterie longue durée avec gestion optimisée de l’énergie',
+        'Historique des trajets et positions consultables via l’application',
+      ],
+      contents: [
+        'Traceur GPS compact',
+        'Câble de recharge USB',
+        'Support et adhésif de fixation',
+        'Manuel d’utilisation et configuration rapide',
+      ],
+    },
+    {
+      id: 15,
+      slug: 'camera-vlog',
+      name: 'Caméra Vlog',
+      category: 'Technologie et gadgets',
+      shortDescription: 'Caméra de poche compacte et stabilisée, spécialement conçue pour le vlogging et la création de contenu.',
+      description: "Cette caméra vlog de poche est conçue pour les créateurs de contenu, voyageurs et passionnés de vidéo. Compacte et ergonomique, elle se glisse facilement dans une poche tout en offrant une stabilisation remarquable et un écran de contrôle pour cadrer parfaitement chaque prise en mouvement.",
+      image: 'assets/images/produits/camera-vlog.jpg',
+      badge: 'Créateur',
+      featured: true,
+      available: true,
+      features: [
+        'Format de poche ultra-compact pour une portabilité totale au quotidien',
+        'Conçue spécialement pour le vlogging et les vidéos en mouvement',
+        'Écran de contrôle intégré pour visualiser et cadrer facilement',
+        'Microphone intégré offrant une capture audio claire et nette',
+        'Transfert rapide des photos et vidéos vers smartphone ou PC',
+      ],
+      contents: [
+        'Caméra vlog de poche',
+        'Câble USB de transfert et recharge',
+        'Dragonne de maintien et transport',
+        'Guide de prise en main rapide',
+      ],
+    },
+    // Maison et bricolage
+    {
+      id: 10,
+      slug: 'pistolet-peinture-electrique1',
+      name: 'Pistolet à peinture électrique',
+      category: 'Maison et bricolage',
+      shortDescription: 'Pistolet à peinture électrique haute performance pour des applications précises, rapides et homogènes.',
+      description: "Ce pistolet à peinture électrique est la solution idéale pour tous vos projets de rénovation, peinture et bricolage. Grâce à son moteur puissant et sa buse réglable multi-jets, il permet d'appliquer la peinture de manière rapide, homogène et sans coulure sur les murs, meubles, clôtures et boiseries.",
+      image: 'assets/images/produits/pistolet-peinture-electrique1.jpg',
+      badge: 'Bricolage',
+      featured: true,
+      available: true,
+      features: [
+        'Pulvérisation homogène et rapide sans coulure ni trace de pinceau',
+        'Buse réglable avec plusieurs orientations de jet (horizontal, vertical, circulaire)',
+        'Régulateur de débit pour s’adapter à chaque type de support',
+        'Réservoir grande capacité démontable pour un nettoyage facile',
+        'Compatible peintures acryliques, lasures, vernis et laques',
+      ],
+      contents: [
+        'Pistolet à peinture électrique',
+        'Réservoir à peinture gradué',
+        'Buse de pulvérisation et accessoires de débit',
+        'Gobelet de mesure de viscosité',
+        'Kit de nettoyage et notice d’utilisation',
+      ],
+    },
+    // Sport et fitness
     {
       id: 6,
-      slug: 'machine-a-laver-portable',
-      name: 'Machine à laver portable',
-      category: 'Maison et équipements',
-      shortDescription:
-        'Équipement compact destiné à faciliter le lavage de petites quantités de linge, selon les capacités du modèle.',
-      description:
-        'Équipement compact et nomade pensé pour faciliter le nettoyage d’appoint de petites pièces de textile (lingerie, vêtements de bébé, serviettes légères). Très utile pour les petits logements, les déplacements professionnels ou les vacances.',
-      image: 'assets/images/produits/lave-linge-portable.jpg',
-      badge: 'Pratique',
+      slug: 'planche-fitness-pliable',
+      name: 'Planche de fitness pliable multifonction',
+      category: 'Sport et fitness',
+      shortDescription: "Planche de fitness pliable pour entrainer plusieurs groupes musculaires a domicile.",
+      description: "Cette planche de fitness pliable et multifonction est concue pour un entrainement complet a domicile. Elle permet de travailler les pectoraux, les triceps, les epaules et la sangle abdominale grace a ses multiples positions d'utilisation.",
+      image: 'assets/images/produits/planche-fitness-pliable.jpg',
+      badge: 'Fitness',
       featured: true,
       available: true,
       features: [
-        'Format compact et transportable réduisant l’encombrement',
-        'Lavage d’appoint pratique pour les petites quantités de linge',
-        'Faible consommation d’eau et d’électricité',
-        'Capacité exacte, dimensions et programmes : à confirmer selon modèle',
+        "Multifonction : pliable pour differentes positions d'exercice",
+        "Travail des pectoraux, triceps, epaules et abdominaux",
+        "Construction solide et stable pour une pratique en securite",
+        "Format compact facilement rangeable et transportable",
+        "Adapte aux debutants et aux sportifs confirmes",
       ],
       contents: [
-        'Machine à laver compacte portable',
-        'Tuyau d’évacuation / vidange',
-        'Adaptateur secteur d’alimentation',
-        'Manuel d’instructions',
+        "Planche de fitness pliable multifonction",
+        "Guide d'exercices recommandes",
+        "Notice de montage",
       ],
     },
-
-    // -------------------------------------------------------------------------
-    // Catégorie 4 : Sport et fitness
-    // -------------------------------------------------------------------------
     {
       id: 7,
-      slug: 'tapis-de-sport-electrique',
-      name: 'Tapis de sport électrique',
+      slug: 'banc-musculation-multifonction',
+      name: 'Banc de musculation multifonction',
       category: 'Sport et fitness',
-      shortDescription:
-        'Équipement destiné à accompagner certaines activités sportives et routines de remise en forme.',
-      description:
-        'Équipement moderne d’entraînement conçu pour intégrer facilement la marche active ou la course à pied dans votre routine quotidienne à domicile. Son design élégant et son profil épuré s’adaptent harmonieusement à votre intérieur.',
-      image: 'assets/images/produits/tapis-sport.jpg',
-      badge: 'Populaire',
+      shortDescription: "Banc de musculation reglable pour des seances de renforcement musculaire completes a domicile.",
+      description: "Ce banc de musculation multifonction et reglable vous permet de realiser une large variete d'exercices de renforcement musculaire a domicile. Robuste et stable, il s'adapte a de nombreuses positions pour cibler differents groupes musculaires.",
+      image: 'assets/images/produits/banc-musculation-multifonction.jpg',
+      badge: 'Muscu',
       featured: true,
       available: true,
       features: [
-        'Conception pliable ultra-plate facilitant le rangement sous un meuble',
-        'Affichage numérique des données de séance en temps réel',
-        'Surface de course avec système d’amorti',
-        'Vitesse maximale, puissance moteur et dimensions : à confirmer selon modèle',
+        "Positions reglables : plat, incline et decline",
+        "Acier robuste pour une stabilite et une longevite maximales",
+        "Rembourrage confortable pour les seances longues",
+        "Compatible avec halteres et barres selon les exercices",
+        "Dimensions et charge maximale : a confirmer selon modele",
       ],
       contents: [
-        'Tapis de sport électrique',
-        'Télécommande de contrôle à distance',
-        'Dispositif de sécurité',
-        'Câble d’alimentation',
-        'Guide d’utilisation et conseils de sécurité',
+        "Banc de musculation multifonction",
+        "Boulons et kit de montage",
+        "Guide d'exercices",
+        "Notice d'assemblage",
       ],
     },
     {
       id: 8,
-      slug: 'appareil-fitness-multifonction',
-      name: 'Appareil de fitness multifonction',
+      slug: 'station-traction-dips',
+      name: 'Station de traction et dips',
       category: 'Sport et fitness',
-      shortDescription:
-        'Équipement conçu pour accompagner différentes activités d’entraînement.',
-      description:
-        'Équipement conçu pour accompagner diverses activités d’entraînement physique et de renforcement musculaire à domicile. Permet de réaliser des exercices variés pour le haut et le bas du corps en fonction de vos objectifs de condition physique.',
-      image: 'assets/images/produits/appareil-fitness-multifonction.jpg',
-      badge: 'Fitness',
-      featured: false,
+      shortDescription: "Station polyvalente pour les tractions, dips et abdominaux - entrainement du haut du corps complet.",
+      description: "Cette station de traction et dips est l'equipement incontournable pour sculpter le haut du corps a domicile. Elle permet d'effectuer des tractions, des dips, des releves de genoux et des exercices d'abdominaux en toute securite.",
+      image: 'assets/images/produits/station-traction-dips.jpg',
+      badge: 'Populaire',
+      featured: true,
       available: true,
       features: [
-        'Polyvalence pour différents groupes musculaires (bras, dos, jambes, sangle abdominale)',
-        'Format compact pensé pour les séances de sport à la maison',
-        'Poignées ergonomiques pour un confort de prise optimal',
-        'Exercices réalisables, dimensions et résistance : à confirmer selon modèle',
+        "Traction, dips, releves de genoux - entrainement haut du corps complet",
+        "Poignees ergonomiques rembourrées pour le confort des mains",
+        "Structure acier robuste et antiderapante",
+        "Reglable en hauteur selon votre morphologie",
+        "Charge maximale et dimensions : a confirmer selon modele",
       ],
       contents: [
-        'Appareil de fitness multifonction',
-        'Accessoires et poignées modulables',
-        'Guide d’exercices d’entraînement recommandés',
+        "Station de traction et dips",
+        "Kit de montage et visserie",
+        "Guide d'exercices inclus",
+        "Notice d'assemblage",
       ],
     },
   ];
 
-  /**
-   * Retourne la liste complète de tous les produits.
-   */
   getProducts(): Product[] {
     return [...this.products];
   }
 
-  /**
-   * Retourne les produits mis en avant (pour la page d'accueil par exemple).
-   */
-  getFeaturedProducts(): Product[] {
-    return this.products.filter((p) => p.featured ?? true);
+  getFeaturedProducts(limit: number = 8): Product[] {
+    return this.products.filter((p) => p.featured ?? true).slice(0, limit);
   }
 
-  /**
-   * Recherche un produit par son identifiant numérique.
-   */
   getProductById(id: number): Product | undefined {
     return this.products.find((p) => p.id === id);
   }
 
-  /**
-   * Recherche un produit par son slug (ou identifiant texte).
-   */
   getProductBySlug(slug: string): Product | undefined {
-    return this.products.find((p) => p.slug === slug || p.id.toString() === slug);
+    const clean = (s: string) =>
+      s
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]/g, '');
+    const target = clean(slug);
+    return this.products.find(
+      (p) =>
+        p.slug === slug ||
+        p.id.toString() === slug ||
+        (p.slug && clean(p.slug) === target) ||
+        clean(p.name) === target
+    );
   }
 
-  /**
-   * Retourne la liste des catégories officielles.
-   */
   getCategories(): string[] {
     return [...this.categories];
   }
 
-  /**
-   * Calcule le nombre total de produits pour une catégorie donnée.
-   */
   getCountByCategory(categoryName: string): number {
     if (!categoryName || categoryName === 'all') {
       return this.products.length;
@@ -297,13 +344,8 @@ export class ProductService {
     ).length;
   }
 
-  /**
-   * Construit le lien WhatsApp sécurisé et prérempli pour commander ou demander des infos.
-   * Format demandé :
-   * « Bonjour TAC, je souhaite obtenir des informations pour commander le produit [nom du produit]. Pouvez-vous me communiquer le prix et la disponibilité ? »
-   */
   getWhatsAppOrderUrl(productName: string): string {
-    const message = `Bonjour TAC, je souhaite obtenir des informations pour commander le produit "${productName}". Pouvez-vous me communiquer le prix et la disponibilité ?`;
+    const message = `Bonjour TAC, je souhaite obtenir des informations pour commander le produit "${productName}". Pouvez-vous me communiquer le prix et la disponibilite ?`;
     return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(message)}`;
   }
 }

@@ -6,6 +6,7 @@ export interface Product {
   shortDescription?: string;
   description: string;
   image: string;
+  images?: string[]; // Galerie d'images supplémentaires pour la page de détail
   price?: string;
   badge?: string;
   features?: string[];

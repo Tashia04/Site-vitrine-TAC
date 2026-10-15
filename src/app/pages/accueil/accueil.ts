@@ -24,7 +24,7 @@ interface ValuePillar {
 export class Accueil {
   private readonly productService = inject(ProductService);
 
-  readonly products: Product[] = this.productService.getFeaturedProducts();
+  readonly products: Product[] = this.productService.getFeaturedProducts(8);
 
   readonly advantages: Advantage[] = [
     {

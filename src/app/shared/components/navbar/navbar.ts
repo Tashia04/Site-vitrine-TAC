@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnDestroy } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
-export class Navbar {
+export class Navbar implements OnDestroy {
   isMobileMenuOpen = false;
   isScrolled = false;
 
@@ -16,11 +16,38 @@ export class Navbar {
     this.isScrolled = window.scrollY > 20;
   }
 
+  @HostListener('window:keydown.escape')
+  onEscapePress(): void {
+    if (this.isMobileMenuOpen) {
+      this.closeMobileMenu();
+    }
+  }
+
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    this.updateBodyScrollLock();
   }
 
   closeMobileMenu(): void {
-    this.isMobileMenuOpen = false;
+    if (this.isMobileMenuOpen) {
+      this.isMobileMenuOpen = false;
+      this.updateBodyScrollLock();
+    }
+  }
+
+  private updateBodyScrollLock(): void {
+    if (typeof document !== 'undefined') {
+      if (this.isMobileMenuOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+    }
   }
 }

@@ -20,7 +20,7 @@ describe('ProductCard', () => {
       name: 'Test',
       category: 'Accessoires automobiles',
       description: 'Desc',
-      image: 'assets/images/produits/aspirateur-voiture.jpg',
+      image: 'assets/images/produits/coussin-accoudoir-user-0.jpg',
     });
     await fixture.whenStable();
   });

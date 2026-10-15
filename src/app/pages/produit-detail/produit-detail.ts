@@ -18,6 +18,7 @@ export class ProduitDetail implements OnInit {
   readonly product = signal<Product | undefined>(undefined);
   readonly notFound = signal<boolean>(false);
   readonly similarProducts = signal<Product[]>([]);
+  readonly activeImage = signal<string>('');
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -45,6 +46,8 @@ export class ProduitDetail implements OnInit {
     if (foundProduct) {
       this.product.set(foundProduct);
       this.notFound.set(false);
+      // Initialise l'image active avec l'image principale
+      this.activeImage.set(foundProduct.image);
 
       // Suggestions de produits similaires dans la même catégorie
       const similar = this.productService
@@ -59,6 +62,13 @@ export class ProduitDetail implements OnInit {
       this.product.set(undefined);
       this.notFound.set(true);
     }
+  }
+
+  /**
+   * Change l'image affichée dans la galerie.
+   */
+  setActiveImage(img: string): void {
+    this.activeImage.set(img);
   }
 
   /**

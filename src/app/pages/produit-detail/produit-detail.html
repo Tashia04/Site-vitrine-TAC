@@ -58,11 +58,11 @@
 
       <!-- Fiche principale produit : Présentation & Actions -->
       <article class="product-hero-card">
-        <!-- Colonne visuelle (Image) -->
+        <!-- Colonne visuelle (Image / Galerie) -->
         <div class="product-visual-wrap">
           <div class="image-stage">
             <img
-              [src]="product()!.image"
+              [src]="activeImage() || product()!.image"
               [alt]="product()!.name"
               class="product-large-img"
               loading="eager"
@@ -71,6 +71,24 @@
               <span class="product-badge">{{ product()!.badge }}</span>
             }
           </div>
+
+          <!-- Galerie de miniatures (uniquement si plusieurs images disponibles) -->
+          @if (product()!.images && product()!.images!.length > 1) {
+            <div class="product-thumbnails">
+              @for (img of product()!.images; track img) {
+                <button
+                  type="button"
+                  class="thumb-btn"
+                  [class.active]="activeImage() === img"
+                  (click)="setActiveImage(img)"
+                  [attr.aria-label]="'Voir l\'image ' + ($index + 1)"
+                >
+                  <img [src]="img" [alt]="product()!.name + ' - vue ' + ($index + 1)" loading="lazy" />
+                </button>
+              }
+            </div>
+          }
+
           <p class="image-caption">Photo de démonstration officielle TAC</p>
         </div>
 

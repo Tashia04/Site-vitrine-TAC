@@ -1,6 +1,10 @@
 .a-propos-page {
-  padding-top: 84px;
+  padding-top: calc(84px + var(--sat));
   overflow-x: hidden;
+
+  @media (max-width: 480px) {
+    padding-top: calc(72px + var(--sat));
+  }
 }
 
 /* ==========================================================================
@@ -17,14 +21,14 @@
 }
 
 .section-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 800;
   color: var(--text-white);
   line-height: 1.2;
 }
 
 .section-subtitle {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   color: var(--text-secondary);
   margin-top: 0.5rem;
   max-width: 600px;
@@ -49,7 +53,7 @@
    ========================================================================== */
 .page-hero-section {
   position: relative;
-  padding: 3.5rem 0 4rem 0;
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(3rem, 5vw, 4rem) 0;
   background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
   border-bottom: 1px solid rgba(212, 175, 55, 0.1);
   overflow: hidden;
@@ -60,7 +64,7 @@
   top: -100px;
   left: 50%;
   transform: translateX(-50%);
-  width: 450px;
+  width: clamp(280px, 40vw, 450px);
   height: 250px;
   background: rgba(212, 175, 55, 0.15);
   filter: blur(80px);
@@ -75,10 +79,11 @@
 
 .breadcrumb-nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 
   .breadcrumb-link {
     display: inline-flex;
@@ -103,7 +108,7 @@
 }
 
 .page-hero-title {
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-size: clamp(2rem, 5.5vw, 3.6rem);
   font-weight: 900;
   color: var(--text-white);
   line-height: 1.15;
@@ -111,7 +116,7 @@
 }
 
 .page-hero-subtitle {
-  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-size: clamp(0.98rem, 1.8vw, 1.2rem);
   color: var(--text-secondary);
   max-width: 680px;
   line-height: 1.6;
@@ -121,14 +126,14 @@
    STORY SECTION
    ======================================================================== */
 .story-section {
-  padding: 6rem 0;
+  padding: clamp(3.5rem, 6vw, 6rem) 0;
   position: relative;
 }
 
 .story-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3.5rem;
+  gap: clamp(2.5rem, 5vw, 4rem);
   align-items: center;
 
   @media (min-width: 992px) {
@@ -140,27 +145,28 @@
 .story-visual-wrap {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .story-emblem-card {
   position: relative;
   width: 100%;
   max-width: 440px;
-  aspect-ratio: 1 / 1;
   background: radial-gradient(circle at center, #151824 0%, #0c0e15 100%);
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card), 0 0 40px rgba(212, 175, 55, 0.12);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2.5rem;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem);
   overflow: hidden;
 
   .emblem-glow-circle {
     position: absolute;
-    width: 280px;
-    height: 280px;
+    width: clamp(200px, 30vw, 280px);
+    height: clamp(200px, 30vw, 280px);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, transparent 70%);
     filter: blur(25px);
@@ -176,7 +182,7 @@
     gap: 1.25rem;
 
     .emblem-logo {
-      height: 120px;
+      height: clamp(80px, 15vw, 120px);
       width: auto;
       filter: drop-shadow(0 6px 20px rgba(212, 175, 55, 0.45));
       transition: transform var(--transition-normal);
@@ -189,7 +195,7 @@
     .emblem-brand {
       display: block;
       font-family: var(--font-heading);
-      font-size: 1.25rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.25rem);
       font-weight: 800;
       letter-spacing: 0.1em;
       color: var(--text-white);
@@ -197,7 +203,7 @@
 
     .emblem-sub {
       display: block;
-      font-size: 0.75rem;
+      font-size: clamp(0.68rem, 1.8vw, 0.75rem);
       font-weight: 600;
       letter-spacing: 0.2em;
       color: var(--gold-400);
@@ -206,15 +212,14 @@
   }
 
   .story-floating-tag {
-    position: absolute;
-    bottom: 1.25rem;
-    left: 1.25rem;
-    right: 1.25rem;
+    position: relative;
     z-index: 3;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
+    margin-top: 2rem;
+    width: 100%;
     padding: 0.65rem 1rem;
     background: rgba(13, 15, 21, 0.88);
     backdrop-filter: blur(8px);
@@ -224,16 +229,18 @@
     font-weight: 700;
     color: var(--gold-300);
     letter-spacing: 0.04em;
+    text-align: center;
 
     svg {
       color: var(--gold-400);
+      flex-shrink: 0;
     }
   }
 }
 
 .story-content {
   .story-lead {
-    font-size: 1.2rem;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
     font-weight: 500;
     line-height: 1.65;
     color: var(--text-primary);
@@ -255,7 +262,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 2.25rem;
+    margin-top: 2rem;
+
+    .btn {
+      @media (max-width: 480px) {
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -263,7 +276,7 @@
    STATS SECTION
    ========================================================================== */
 .stats-section {
-  padding: 3rem 0;
+  padding: clamp(2.25rem, 4vw, 3.25rem) 0;
   background: rgba(13, 15, 21, 0.6);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -272,19 +285,20 @@
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.25rem;
 
-  @media (min-width: 640px) {
+  @media (min-width: 480px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
   }
 }
 
 .stat-card {
-  padding: 1.75rem 1.5rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem) 1.25rem;
   background: var(--color-bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
@@ -300,7 +314,7 @@
   .stat-value {
     display: block;
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 0.4rem;
@@ -323,13 +337,13 @@
    VALUES SECTION
    ========================================================================== */
 .values-section {
-  padding: 6rem 0;
+  padding: clamp(3.5rem, 6vw, 6rem) 0;
   position: relative;
 }
 
 .section-heading-centered {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
 
   .section-subtitle {
     margin-left: auto;
@@ -340,21 +354,22 @@
 .values-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
 
-  @media (min-width: 640px) {
+  @media (min-width: 580px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
   }
 }
 
 .value-card {
   display: flex;
   flex-direction: column;
-  padding: 2.5rem 1.75rem;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) clamp(1.25rem, 2.5vw, 1.75rem);
   background: var(--color-bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
@@ -380,14 +395,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 66px;
-    height: 66px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     background: rgba(212, 175, 55, 0.08);
     border: 1px solid rgba(212, 175, 55, 0.3);
     color: var(--gold-400);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     transition: all var(--transition-normal);
+    flex-shrink: 0;
   }
 
   .value-title {
@@ -398,7 +414,7 @@
   }
 
   .value-desc {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--text-secondary);
     line-height: 1.6;
   }
@@ -408,21 +424,22 @@
    MISSION & VISION SECTION
    ========================================================================== */
 .mission-vision-section {
-  padding: 3rem 0 6rem 0;
+  padding: clamp(2rem, 4vw, 3rem) 0 clamp(3.5rem, 6vw, 6rem) 0;
 }
 
 .mission-vision-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
 .mv-card {
-  padding: 3rem 2.5rem;
+  padding: clamp(1.75rem, 4vw, 3rem) clamp(1.25rem, 3.5vw, 2.5rem);
   background: linear-gradient(135deg, rgba(20, 23, 33, 0.9) 0%, rgba(13, 15, 21, 0.9) 100%);
   border: 1px solid rgba(212, 175, 55, 0.22);
   border-radius: var(--radius-xl);
@@ -447,14 +464,14 @@
   }
 
   .mv-title {
-    font-size: 1.45rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.45rem);
     font-weight: 800;
     color: var(--text-white);
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
   }
 
   .mv-desc {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.65;
   }
@@ -464,7 +481,7 @@
    CTA SECTION
    ========================================================================== */
 .a-propos-cta-section {
-  padding: 2rem 0 7rem 0;
+  padding: clamp(2rem, 4vw, 3rem) 0 clamp(4rem, 7vw, 7rem) 0;
 }
 
 .a-propos-cta-box {
@@ -472,14 +489,10 @@
   background: linear-gradient(135deg, #10131c 0%, #171b26 100%);
   border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: var(--radius-xl);
-  padding: 4.5rem 2rem;
+  padding: clamp(2.25rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 2rem);
   text-align: center;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.15);
-
-  @media (max-width: 640px) {
-    padding: 3rem 1.25rem;
-  }
 }
 
 .cta-glow-circle {
@@ -487,8 +500,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 450px;
-  height: 450px;
+  width: clamp(260px, 40vw, 450px);
+  height: clamp(260px, 40vw, 450px);
   background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -500,7 +513,7 @@
   margin: 0 auto;
 
   .cta-heading {
-    font-size: clamp(2rem, 3.8vw, 2.7rem);
+    font-size: clamp(1.75rem, 4.5vw, 2.7rem);
     font-weight: 800;
     color: var(--text-white);
     margin-bottom: 1rem;
@@ -508,10 +521,10 @@
   }
 
   .cta-sub {
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -520,5 +533,11 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
+  gap: 1rem;
+
+  .btn {
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+  }
 }

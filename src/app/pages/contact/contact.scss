@@ -4,9 +4,14 @@
    ========================================================================== */
 
 .contact-page {
-  padding-top: 84px; /* Dégagement de la barre de navigation fixe */
+  padding-top: calc(84px + var(--sat));
   overflow-x: hidden;
   min-height: 100vh;
+  min-height: 100dvh;
+
+  @media (max-width: 768px) {
+    padding-top: calc(72px + var(--sat));
+  }
 }
 
 /* ==========================================================================
@@ -112,7 +117,7 @@
    LAYOUT PRINCIPAL : GRILLE À 2 COLONNES
    ========================================================================== */
 .contact-main-section {
-  padding: 4rem 0 5.5rem 0;
+  padding: clamp(2.5rem, 5vw, 4rem) 0 max(4.5rem, var(--sab)) 0;
   position: relative;
 }
 
@@ -303,9 +308,8 @@
       font-size: 0.98rem;
       font-weight: 700;
       color: var(--text-white);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      overflow-wrap: anywhere;
+      word-break: break-word;
 
       &.highlight-gold {
         color: var(--gold-300);
@@ -352,6 +356,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    min-height: 44px;
     padding: 0.55rem 0.95rem;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-subtle);
@@ -409,14 +414,10 @@
   background: var(--color-bg-card);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-xl);
-  padding: 2.25rem 1.75rem;
+  padding: clamp(1.25rem, 4vw, 3rem);
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(14px);
   position: relative;
-
-  @media (min-width: 640px) {
-    padding: 3rem 2.5rem;
-  }
 }
 
 .form-card-header {
@@ -656,7 +657,8 @@
   border-radius: var(--radius-md);
   color: var(--text-white);
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1rem; /* 16px pour empêcher le zoom automatique d'iOS Safari */
+  min-height: 48px;
   transition: all var(--transition-normal);
   outline: none;
 
@@ -719,6 +721,7 @@
 
   .submit-btn {
     width: 100%;
+    min-height: 48px;
     padding: 1.05rem 2rem;
     font-size: 1rem;
     font-weight: 700;

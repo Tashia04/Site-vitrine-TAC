@@ -5,8 +5,14 @@
 
 .page-produits-wrapper {
   min-height: 100vh;
-  padding-top: 84px; /* Dégagement de la barre de navigation fixe (84px) */
-  padding-bottom: 5rem;
+  min-height: 100dvh;
+  padding-top: calc(84px + var(--sat));
+  padding-bottom: max(5rem, var(--sab));
+
+  @media (max-width: 768px) {
+    padding-top: calc(72px + var(--sat));
+    padding-bottom: max(3.5rem, var(--sab));
+  }
 }
 
 /* ==========================================================================
@@ -78,16 +84,12 @@
 }
 
 .banner-title {
-  font-size: 2.3rem;
+  font-size: clamp(1.85rem, 5vw, 3.25rem);
   font-weight: 800;
   line-height: 1.15;
   color: var(--text-white);
   margin-bottom: 1.25rem;
   letter-spacing: -0.03em;
-
-  @media (min-width: 640px) {
-    font-size: 3.25rem;
-  }
 }
 
 .banner-description {
@@ -175,7 +177,7 @@
   outline: none;
   color: var(--text-white);
   font-family: inherit;
-  font-size: 0.98rem;
+  font-size: 1rem; /* 16px pour éviter le zoom automatique d'iOS Safari */
   padding: 0.65rem 0;
 
   &::placeholder {
@@ -272,7 +274,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.65rem 1.25rem;
+  min-height: 44px;
+  padding: 0.55rem 1.15rem;
   font-size: 0.88rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
@@ -334,14 +337,15 @@
 .products-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.75rem;
+  gap: 1.5rem;
 
-  @media (min-width: 580px) {
+  @media (min-width: 520px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 880px) {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
   }
 
   @media (min-width: 1200px) {
@@ -430,7 +434,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 1.25rem 1.35rem 1.35rem 1.35rem;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
 }
 
 .card-top-meta {
@@ -509,12 +513,14 @@
 /* Boutons d'Action : Voir Détails & Commander */
 .card-action-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: auto;
 }
 
 .btn-action-details {
-  flex: 1;
+  flex: 1 1 115px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -545,6 +551,8 @@
 }
 
 .btn-action-order {
+  flex: 1 1 115px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
